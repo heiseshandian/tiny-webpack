@@ -23,7 +23,7 @@ export default class TinyWebpack {
     this.config = config;
   }
 
-  public printCode() {
+  public printCode(): string {
     const { entry } = this.config;
     // 这里需要使用JSON.stringify字符串化，不然下面字符串化的时候会直接变成[object Object]
     const graph = JSON.stringify(this.generateGraph());
@@ -86,9 +86,7 @@ export default class TinyWebpack {
     });
 
     // 转化代码
-    const result = transformFromAstSync(ast, undefined, {
-      presets: ['@babel/preset-env'],
-    });
+    const result = transformFromAstSync(ast);
 
     return {
       filename,

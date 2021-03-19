@@ -4,7 +4,7 @@
   "description": "minimal webpack",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:o": "jest -o",
     "prepare": "husky install"
   },
   "repository": {
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/heiseshandian/tiny-webpack#readme",
   "devDependencies": {
     "@types/babel__core": "^7.1.13",
+    "@types/jest": "^26.0.21",
     "@types/node": "^14.14.35",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
@@ -32,6 +33,7 @@
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "ts-jest": "^26.5.4",
+    "ts-node": "^9.1.1",
     "typescript": "^4.2.3"
   },
   "dependencies": {
