@@ -1,0 +1,54 @@
+{
+  "name": "tiny-webpack",
+  "version": "1.0.0",
+  "description": "minimal webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heiseshandian/tiny-webpack.git"
+  },
+  "keywords": [],
+  "author": "gqzhang5 <gqzhang5@iflytek.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heiseshandian/tiny-webpack/issues"
+  },
+  "homepage": "https://github.com/heiseshandian/tiny-webpack#readme",
+  "devDependencies": {
+    "@types/babel__core": "^7.1.13",
+    "@types/node": "^14.14.35",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "eslint": "^7.22.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "husky": "^5.1.3",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1",
+    "ts-jest": "^26.5.4",
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "core-js": "^3.9.1"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "node scripts/verifyCommit.js",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
