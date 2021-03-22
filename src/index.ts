@@ -31,12 +31,13 @@ export default class TinyWebpack {
     return `(function (graph) {
     function require(module) {
       function innerRequire(relativePath) {
-        return graph[module].deps[relativePath];
+        return require(graph[module].deps[relativePath]);
       }
       var exports = {};
       (function(require,exports,code){
         eval(code);
-      })(innerRequire,exports,graph[module].code)
+      })(innerRequire,exports,graph[module].code);
+      return exports;
     }
 
     require('${entry}');
