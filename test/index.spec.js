@@ -5,6 +5,7 @@ const path = require('path');
 const { parse } = require('@babel/parser');
 const traverse = require('@babel/traverse').default;
 const { transformFromAstSync } = require('@babel/core');
+const assert = require('assert');
 
 const baseDir = __dirname;
 
@@ -40,6 +41,9 @@ function transformPath(filename, baseDir) {
     : path.resolve(baseDir || process.cwd(), filename);
 }
 
-test('parseFile', () => {
-  expect(parseFile('./data/a.js')).toBe(null);
+it('parseFile', () => {
+  assert.strictEqual(
+    parseFile('./data/a.js'),
+    "{\n    code:\n      '\"use strict\";\n\nvar _b = require(\"./b.js\");\n\n// eslint-disable-next-line no-console\nconsole.log(_b.b);',\n    deps: {\n      './b.js': 'data\\b.js',\n    },\n    filename: './data/a.js',\n  }",
+  );
 });
